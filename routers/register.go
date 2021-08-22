@@ -1,0 +1,45 @@
+package routers
+
+import (
+	"encoding/json"
+	"github.com/ccontreras/crispy-potato/bd"
+	"github.com/ccontreras/crispy-potato/models"
+	"net/http"
+)
+
+// Register is the function that creates any user in the database
+func Register(w http.ResponseWriter, r *http.Request){
+	var t models.User
+	err := json.NewDecoder(r.Body).Decode(&t)
+	if err != nil {
+		http.Error(w, "Received params error", 400)
+		return
+	}
+
+	if len(t.Email) == 0 {
+		http.Error(w, "User email is a required field", 400)
+		return
+	}
+	if len(t.Password) < 6 {
+		http.Error(w, "User password should be at least 6 characters", 400)
+		return
+	}
+
+	_, exists, _ := bd.CheckUserAlreadyExists(t.Email)
+	if exists == true {
+		http.Error(w, "The email you are trying to use is already taken by other one", 400)
+		return
+	}
+
+	_, status, err := bd.InsertRegister(t)
+	if err != nil {
+		http.Error(w, "An error has ocurred when trying to insert the user to the database"+err.Error(), 400)
+		return
+	}
+	if status == false {
+		http.Error(w, "User has not been inserted to the database", 400)
+		return
+	}
+
+	w.WriteHeader(http.StatusCreated)
+}
