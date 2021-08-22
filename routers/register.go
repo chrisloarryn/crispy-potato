@@ -33,7 +33,7 @@ func Register(w http.ResponseWriter, r *http.Request){
 
 	_, status, err := bd.InsertRegister(t)
 	if err != nil {
-		http.Error(w, "An error has ocurred when trying to insert the user to the database"+err.Error(), 400)
+		http.Error(w, "An error has occurred when trying to insert the user to the database"+err.Error(), 400)
 		return
 	}
 	if status == false {
