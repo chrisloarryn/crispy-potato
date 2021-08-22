@@ -9,7 +9,7 @@ type User struct {
 	ID         primitive.ObjectID `bson:"_id, omitempty" json:"id"`
 	Name       string             `bson:"name" json:"name, omitempty"`
 	Surname    string             `bson:"surname" json:"name, omitempty"`
-	Birthday   time.Time             `bson:"birthday" json:"birthday, omitempty"`
+	Birthday   time.Time          `bson:"birthday" json:"birthday, omitempty"`
 	Email      string             `bson:"email" json:"email"`
 	Password   string             `bson:"name" json:"name, omitempty"`
 	Avatar     string             `bson:"name" json:"name, omitempty"`
