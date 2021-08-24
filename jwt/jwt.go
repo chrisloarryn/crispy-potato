@@ -12,7 +12,7 @@ func GenerateJWT(t models.User) (string, error) {
 
 	payload := jwt.MapClaims{
 		"email": t.Email,
-		"name": t.Email,
+		"name": t.Name,
 		"surname": t.Surname,
 		"birthday": t.Birthday,
 		"biographic": t.Biographic,
