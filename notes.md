@@ -1,3 +1,4 @@
+idea: GO+Gin+gqlgen+MongoDB+
 
 for update deps `go mod tidy`
 
