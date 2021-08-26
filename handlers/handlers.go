@@ -14,10 +14,12 @@ import (
 func Handlers() {
 	router := mux.NewRouter()
 
-	router.HandleFunc("/register", middlew.CheckDB(routers.Register)).Methods("POST")
-	router.HandleFunc("/login", middlew.CheckDB(routers.Login)).Methods("POST")
+	router.HandleFunc("/signUp", middlew.CheckDB(routers.Register)).Methods("POST")
+	router.HandleFunc("/signIn", middlew.CheckDB(routers.Login)).Methods("POST")
 	router.HandleFunc("/me", middlew.CheckDB(middlew.ValidateJWT(routers.Me))).Methods("GET")
-	router.HandleFunc("/updateMe", middlew.CheckDB(middlew.ValidateJWT(routers.ModifyProfile))).Methods("PUT")
+	router.HandleFunc("/me", middlew.CheckDB(middlew.ValidateJWT(routers.ModifyProfile))).Methods("PUT")
+	router.HandleFunc("/tweet", middlew.CheckDB(middlew.ValidateJWT(routers.SaveTweet))).Methods("POST")
+	router.HandleFunc("/tweet", middlew.CheckDB(middlew.ValidateJWT(routers.ReadTweets))).Methods("GET")
 
 	PORT := os.Getenv("PORT")
 	if PORT == "" {
