@@ -18,9 +18,14 @@ func Handlers() {
 	router.HandleFunc("/signIn", middlew.CheckDB(routers.Login)).Methods("POST")
 	router.HandleFunc("/me", middlew.CheckDB(middlew.ValidateJWT(routers.Me))).Methods("GET")
 	router.HandleFunc("/me", middlew.CheckDB(middlew.ValidateJWT(routers.ModifyProfile))).Methods("PUT")
-	router.HandleFunc("/tweet", middlew.CheckDB(middlew.ValidateJWT(routers.SaveTweet))).Methods("POST")
-	router.HandleFunc("/tweet", middlew.CheckDB(middlew.ValidateJWT(routers.ReadTweets))).Methods("GET")
-	router.HandleFunc("/tweet", middlew.CheckDB(middlew.ValidateJWT(routers.DeleteTweet))).Methods("DELETE")
+	router.HandleFunc("/tweets", middlew.CheckDB(middlew.ValidateJWT(routers.SaveTweet))).Methods("POST")
+	router.HandleFunc("/tweets", middlew.CheckDB(middlew.ValidateJWT(routers.ReadTweets))).Methods("GET")
+	router.HandleFunc("/tweets", middlew.CheckDB(middlew.ValidateJWT(routers.DeleteTweet))).Methods("DELETE")
+
+	router.HandleFunc("/avatars", middlew.CheckDB(middlew.ValidateJWT(routers.GetAvatar))).Methods("GET")
+	router.HandleFunc("/avatars", middlew.CheckDB(middlew.ValidateJWT(routers.UploadAvatar))).Methods("POST")
+	router.HandleFunc("/banners", middlew.CheckDB(middlew.ValidateJWT(routers.GetBanner))).Methods("GET")
+	router.HandleFunc("/banners", middlew.CheckDB(middlew.ValidateJWT(routers.UploadBanner))).Methods("POST")
 
 	PORT := os.Getenv("PORT")
 	if PORT == "" {

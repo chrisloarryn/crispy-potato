@@ -14,7 +14,7 @@ func UploadAvatar(w http.ResponseWriter, r *http.Request) {
 
 	file, handler, err := r.FormFile("avatar")
 	var extension = strings.Split(handler.Filename, ".")[1]
-	var upFile string = "uploads/avatar/" +IDUser+"."+extension
+	var upFile string = "uploads/avatars/" +IDUser+"."+extension
 
 	f, err := os.OpenFile(upFile, os.O_WRONLY|os.O_CREATE, 0666)
 	if err != nil {
