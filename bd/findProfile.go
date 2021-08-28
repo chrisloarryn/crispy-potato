@@ -11,7 +11,7 @@ import (
 
 // FindAProfile is a function to find a profile in the database
 func FindAProfile(ID string) (models.User, error) {
-	ctx, cancel := context.WithTimeout(context.Background(), time.Second * 15)
+	ctx, cancel := context.WithTimeout(context.Background(), time.Second*15)
 	defer cancel()
 
 	db := MongoCN.Database("twittor")
@@ -28,7 +28,7 @@ func FindAProfile(ID string) (models.User, error) {
 	profile.Password = ""
 
 	if err != nil {
-		fmt.Println("Entry not found"+err.Error())
+		fmt.Println("Entry not found" + err.Error())
 		return profile, err
 	}
 

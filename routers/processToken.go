@@ -15,7 +15,7 @@ var IDUser string
 var Email string
 
 // ProcessToken function to process the token
-func ProcessToken (token string) (*models.Claim, bool, string, error) {
+func ProcessToken(token string) (*models.Claim, bool, string, error) {
 	myKey := []byte("MastersOfDevelopment_facebookGroup")
 	claims := &models.Claim{}
 
@@ -24,7 +24,7 @@ func ProcessToken (token string) (*models.Claim, bool, string, error) {
 		return claims, false, string(""), errors.New("token format invalid")
 	}
 	token = strings.TrimSpace(splitToken[1])
-	jwtToken, err := jwt.ParseWithClaims(token, claims, func(token *jwt.Token)(interface{}, error) {
+	jwtToken, err := jwt.ParseWithClaims(token, claims, func(token *jwt.Token) (interface{}, error) {
 		return myKey, nil
 	})
 	if err == nil {

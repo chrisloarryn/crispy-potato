@@ -7,21 +7,24 @@ import (
 	"time"
 )
 
-// CheckUserAlreadyExists receives an email as a parameter and checks if exists or not
-func CheckUserAlreadyExists(email string) (models.User, bool, string) {
+// ReadRelation find the relations
+func ReadRelation(t models.Relation) (bool, error) {
 	ctx, cancel := context.WithTimeout(context.Background(), 15*time.Second)
 	defer cancel()
 
 	db := MongoCN.Database("twittor")
-	col := db.Collection("users")
+	col := db.Collection("relations")
 
-	condition := bson.M{"email": email}
-	var result models.User
+	condition := bson.M{
+		"userid":         t.UserID,
+		"userrelationid": t.UserRelationID,
+	}
+
+	var result models.Relation
 
 	err := col.FindOne(ctx, condition).Decode(&result)
-	ID := result.ID.Hex()
 	if err != nil {
-		return result, false, ID
+		return false, err
 	}
-	return result, true, ID
+	return true, err
 }

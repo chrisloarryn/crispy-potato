@@ -8,7 +8,7 @@ import (
 )
 
 // Register is the function that creates any user in the database
-func Register(w http.ResponseWriter, r *http.Request){
+func Register(w http.ResponseWriter, r *http.Request) {
 	var t models.User
 	err := json.NewDecoder(r.Body).Decode(&t)
 	if err != nil {
@@ -41,5 +41,6 @@ func Register(w http.ResponseWriter, r *http.Request){
 		return
 	}
 
+	w.Header().Set("Content-type", "application/json")
 	w.WriteHeader(http.StatusCreated)
 }

@@ -2,7 +2,8 @@ idea: GO+Gin+gqlgen+MongoDB+
 
 for update deps `go mod tidy`
 
-for add `.env` variables [GoDotEnv](https://github.com/joho/godotenv) ([example](https://towardsdatascience.com/use-environment-variable-in-your-next-golang-project-39e17c3aaa66)) \
+for add `.env`
+variables [GoDotEnv](https://github.com/joho/godotenv) ([example](https://towardsdatascience.com/use-environment-variable-in-your-next-golang-project-39e17c3aaa66)) \
 for add `sql` query library [goqu](https://doug-martin.github.io/goqu/), [go-jet](https://github.com/go-jet/jet)
 
 ___

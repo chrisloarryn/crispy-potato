@@ -14,7 +14,7 @@ func UploadBanner(w http.ResponseWriter, r *http.Request) {
 
 	file, handler, err := r.FormFile("banner")
 	var extension = strings.Split(handler.Filename, ".")[1]
-	var upFile string = "uploads/banners/" +IDUser+"."+extension
+	var upFile string = "uploads/banners/" + IDUser + "." + extension
 
 	f, err := os.OpenFile(upFile, os.O_WRONLY|os.O_CREATE, 0666)
 	if err != nil {

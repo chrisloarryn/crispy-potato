@@ -9,7 +9,7 @@ import (
 
 // DeleteTweet is for deleting a tweet
 func DeleteTweet(ID string, UserID string) error {
-	ctx, cancel := context.WithTimeout(context.Background(), 15 * time.Second)
+	ctx, cancel := context.WithTimeout(context.Background(), 15*time.Second)
 	defer cancel()
 
 	db := MongoCN.Database("twittor")
@@ -18,7 +18,7 @@ func DeleteTweet(ID string, UserID string) error {
 	objID, _ := primitive.ObjectIDFromHex(ID)
 
 	condition := bson.M{
-		"_id": objID,
+		"_id":    objID,
 		"userid": UserID,
 	}
 

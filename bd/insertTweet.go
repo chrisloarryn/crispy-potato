@@ -17,9 +17,9 @@ func InsertTweet(t models.SaveTweet) (string, bool, error) {
 	col := db.Collection("tweets")
 
 	register := bson.M{
-		"userid": t.UserID,
+		"userid":  t.UserID,
 		"message": t.Message,
-		"date": t.Date,
+		"date":    t.Date,
 	}
 
 	result, err := col.InsertOne(ctx, register)

@@ -7,7 +7,7 @@ import (
 )
 
 // Me is a function to get the profile of current user
-func Me (w http.ResponseWriter, r *http.Request) {
+func Me(w http.ResponseWriter, r *http.Request) {
 	ID := r.URL.Query().Get("id")
 	if len(ID) < 1 {
 		http.Error(w, "Should send the id parameter", http.StatusBadRequest)

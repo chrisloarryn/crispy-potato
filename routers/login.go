@@ -36,7 +36,7 @@ func Login(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	resp := models.LoginResponse {
+	resp := models.LoginResponse{
 		Token: jwtKey,
 	}
 
@@ -46,10 +46,10 @@ func Login(w http.ResponseWriter, r *http.Request) {
 
 	expirationTime := time.Now().Add(24 * time.Hour)
 	http.SetCookie(w, &http.Cookie{
-		Name: "token",
-		Value: jwtKey,
-		Expires: expirationTime,
-		Secure: true,
+		Name:     "token",
+		Value:    jwtKey,
+		Expires:  expirationTime,
+		Secure:   true,
 		HttpOnly: false,
 	})
 }

@@ -9,14 +9,14 @@ import (
 )
 
 // SaveTweet is for saving url handled
-func SaveTweet (w http.ResponseWriter, r *http.Request) {
+func SaveTweet(w http.ResponseWriter, r *http.Request) {
 	var message models.Tweet
 	err := json.NewDecoder(r.Body).Decode(&message)
 
 	register := models.SaveTweet{
-		UserID: IDUser,
+		UserID:  IDUser,
 		Message: message.Message,
-		Date: time.Now(),
+		Date:    time.Now(),
 	}
 	_, status, err := bd.InsertTweet(register)
 
