@@ -18,7 +18,7 @@ func UploadAvatar(w http.ResponseWriter, r *http.Request) {
 
 	f, err := os.OpenFile(upFile, os.O_WRONLY|os.O_CREATE, 0666)
 	if err != nil {
-		http.Error(w, "error uploading the image"+err.Error(), http.StatusBadRequest)
+		http.Error(w, "error uploading the image ! "+err.Error(), http.StatusBadRequest)
 		return
 	}
 
