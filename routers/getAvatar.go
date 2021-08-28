@@ -5,7 +5,6 @@ import (
 	"io"
 	"net/http"
 	"os"
-	"strings"
 )
 
 // GetAvatar for get the avatar
@@ -33,9 +32,4 @@ func GetAvatar(w http.ResponseWriter, r *http.Request) {
 	if err != nil {
 		http.Error(w, "error copying the image", http.StatusBadRequest)
 	}
-
-	content := strings.Split(profile.Avatar, ".")[1]
-
-	w.Header().Set("Content-type", "image/"+content)
-	w.WriteHeader(http.StatusCreated)
 }
