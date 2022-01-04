@@ -2,9 +2,10 @@ package routers
 
 import (
 	"encoding/json"
+	"net/http"
+
 	"github.com/ccontreras/crispy-potato/bd"
 	"github.com/ccontreras/crispy-potato/models"
-	"net/http"
 )
 
 // Register is the function that creates any user in the database
@@ -26,7 +27,7 @@ func Register(w http.ResponseWriter, r *http.Request) {
 	}
 
 	_, exists, _ := bd.CheckUserAlreadyExists(t.Email)
-	if exists == true {
+	if exists {
 		http.Error(w, "The email you are trying to use is already taken by other one", 400)
 		return
 	}
@@ -36,7 +37,7 @@ func Register(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, "An error has occurred when trying to insert the user to the database"+err.Error(), 400)
 		return
 	}
-	if status == false {
+	if !status {
 		http.Error(w, "User has not been inserted to the database", 400)
 		return
 	}

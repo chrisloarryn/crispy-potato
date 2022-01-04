@@ -2,8 +2,9 @@ package routers
 
 import (
 	"encoding/json"
-	"github.com/ccontreras/crispy-potato/bd"
 	"net/http"
+
+	"github.com/ccontreras/crispy-potato/bd"
 )
 
 // Me is a function to get the profile of current user

@@ -2,9 +2,10 @@ package routers
 
 import (
 	"encoding/json"
-	"github.com/ccontreras/crispy-potato/bd"
 	"net/http"
 	"strconv"
+
+	"github.com/ccontreras/crispy-potato/bd"
 )
 
 // ReadTweetsRelations followers tweets
@@ -20,7 +21,7 @@ func ReadTweetsRelations(w http.ResponseWriter, r *http.Request) {
 	}
 
 	response, ok := bd.ReadTweetsFollowers(IDUser, currPage)
-	if ok == false {
+	if !ok {
 		http.Error(w, "error reading tweets", http.StatusBadRequest)
 		return
 	}

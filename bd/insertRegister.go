@@ -2,9 +2,10 @@ package bd
 
 import (
 	"context"
+	"time"
+
 	"github.com/ccontreras/crispy-potato/models"
 	"go.mongodb.org/mongo-driver/bson/primitive"
-	"time"
 )
 
 // InsertRegister function inserts a register into the database

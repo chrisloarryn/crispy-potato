@@ -1,8 +1,9 @@
 package middlew
 
 import (
-	"github.com/ccontreras/crispy-potato/bd"
 	"net/http"
+
+	"github.com/ccontreras/crispy-potato/bd"
 )
 
 func CheckDB(next http.HandlerFunc) http.HandlerFunc {

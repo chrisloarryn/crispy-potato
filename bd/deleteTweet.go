@@ -2,9 +2,10 @@ package bd
 
 import (
 	"context"
+	"time"
+
 	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/bson/primitive"
-	"time"
 )
 
 // DeleteTweet is for deleting a tweet

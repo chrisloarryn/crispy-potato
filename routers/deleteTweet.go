@@ -1,8 +1,9 @@
 package routers
 
 import (
-	"github.com/ccontreras/crispy-potato/bd"
 	"net/http"
+
+	"github.com/ccontreras/crispy-potato/bd"
 )
 
 // DeleteTweet for delete

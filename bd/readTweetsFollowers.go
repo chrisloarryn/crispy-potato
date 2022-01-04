@@ -2,9 +2,10 @@ package bd
 
 import (
 	"context"
+	"time"
+
 	"github.com/ccontreras/crispy-potato/models"
 	"go.mongodb.org/mongo-driver/bson"
-	"time"
 )
 
 func ReadTweetsFollowers(ID string, page int) ([]models.ReturnTweetsFollowers, bool) {
@@ -31,9 +32,9 @@ func ReadTweetsFollowers(ID string, page int) ([]models.ReturnTweetsFollowers, b
 	conditions = append(conditions, bson.M{"$skip": skip})
 	conditions = append(conditions, bson.M{"$limit": 20})
 
-	cursor, err := col.Aggregate(ctx, conditions)
+	cursor, _ := col.Aggregate(ctx, conditions)
 	var results []models.ReturnTweetsFollowers
-	err = cursor.All(ctx, &results)
+	err := cursor.All(ctx, &results)
 	if err != nil {
 		return results, false
 	}

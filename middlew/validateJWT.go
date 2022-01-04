@@ -1,8 +1,9 @@
 package middlew
 
 import (
-	"github.com/ccontreras/crispy-potato/routers"
 	"net/http"
+
+	"github.com/ccontreras/crispy-potato/routers"
 )
 
 func ValidateJWT(next http.HandlerFunc) http.HandlerFunc {

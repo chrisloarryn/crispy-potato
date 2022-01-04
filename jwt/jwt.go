@@ -1,9 +1,10 @@
 package jwt
 
 import (
+	"time"
+
 	"github.com/ccontreras/crispy-potato/models"
 	"github.com/dgrijalva/jwt-go"
-	"time"
 )
 
 // GenerateJWT is the function to generate JWT

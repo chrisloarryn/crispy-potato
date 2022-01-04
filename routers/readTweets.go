@@ -2,9 +2,10 @@ package routers
 
 import (
 	"encoding/json"
-	"github.com/ccontreras/crispy-potato/bd"
 	"net/http"
 	"strconv"
+
+	"github.com/ccontreras/crispy-potato/bd"
 )
 
 // ReadTweets for reading tweets
@@ -29,7 +30,7 @@ func ReadTweets(w http.ResponseWriter, r *http.Request) {
 	int64Page := int64(page)
 
 	response, ok := bd.ReadTweets(ID, int64Page)
-	if ok == false {
+	if !ok {
 		http.Error(w, "error reading tweets", http.StatusBadRequest)
 		return
 	}

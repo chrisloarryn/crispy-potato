@@ -1,13 +1,14 @@
 package handlers
 
 import (
+	"log"
+	"net/http"
+	"os"
+
 	"github.com/ccontreras/crispy-potato/middlew"
 	"github.com/ccontreras/crispy-potato/routers"
 	"github.com/gorilla/mux"
 	"github.com/rs/cors"
-	"log"
-	"net/http"
-	"os"
 )
 
 // Handlers for manage some routes, sets the port and start the server

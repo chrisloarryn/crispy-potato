@@ -2,11 +2,12 @@ package routers
 
 import (
 	"encoding/json"
+	"net/http"
+	"time"
+
 	"github.com/ccontreras/crispy-potato/bd"
 	"github.com/ccontreras/crispy-potato/jwt"
 	"github.com/ccontreras/crispy-potato/models"
-	"net/http"
-	"time"
 )
 
 // Login handle the login
@@ -25,7 +26,7 @@ func Login(w http.ResponseWriter, r *http.Request) {
 	}
 
 	doc, exists := bd.LoginTry(t.Email, t.Password)
-	if exists == false {
+	if !exists {
 		http.Error(w, "Invalid user or password", 400)
 		return
 	}

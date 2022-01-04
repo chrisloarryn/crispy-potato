@@ -2,9 +2,10 @@ package routers
 
 import (
 	"encoding/json"
+	"net/http"
+
 	"github.com/ccontreras/crispy-potato/bd"
 	"github.com/ccontreras/crispy-potato/models"
-	"net/http"
 )
 
 // ReadRelation checks if there is or not relation between users
@@ -18,7 +19,7 @@ func ReadRelation(w http.ResponseWriter, r *http.Request) {
 	var response models.RelationResponse
 
 	status, err := bd.ReadRelation(t)
-	if err != nil || status == false {
+	if err != nil || !status {
 		response.Status = false
 	} else {
 		response.Status = true

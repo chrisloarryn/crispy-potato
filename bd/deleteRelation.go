@@ -2,8 +2,9 @@ package bd
 
 import (
 	"context"
-	"github.com/ccontreras/crispy-potato/models"
 	"time"
+
+	"github.com/ccontreras/crispy-potato/models"
 )
 
 // DeleteRelation for deleting relation model

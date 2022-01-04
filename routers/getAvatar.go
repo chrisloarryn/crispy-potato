@@ -1,10 +1,11 @@
 package routers
 
 import (
-	"github.com/ccontreras/crispy-potato/bd"
 	"io"
 	"net/http"
 	"os"
+
+	"github.com/ccontreras/crispy-potato/bd"
 )
 
 // GetAvatar for get the avatar

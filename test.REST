@@ -1,0 +1,31 @@
+###
+
+@baseURL = http://localhost:8080
+@username = admin@admin.cl
+@password = admin1234
+
+
+###
+GET {{ baseURL }}/tweets?id=6122daa33f41511c76cd1ca3&page=1 HTTP/1.1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MWQzZTZjZjA4ZWRmYjk5MjA2YWJiNjgiLCJiaW9ncmFwaGljIjoiIiwiYmlydGhkYXkiOiIwMDAxLTAxLTAxVDAwOjAwOjAwWiIsImVtYWlsIjoiYWRtaW5AYWRtaW4uY2wiLCJleHAiOjE2NDEzNjM1NTcsImxvY2F0aW9uIjoiIiwibmFtZSI6IiIsInN1cm5hbWUiOiIiLCJ3ZWJzaXRlIjoiIn0.cWwdkQvW-mNDtntm-loR2yTww-wFQLQpTY0AKGedDfw
+
+###
+GET {{ baseURL }}/tweets/{{ tweetID }} HTTP/1.1
+
+###
+POST {{ baseURL }}/signUp HTTP/1.1
+Content-Type: application/json
+
+{
+  "email": "{{ username }}",
+  "password": "{{ password }}"
+}
+
+###
+POST {{ baseURL }}/signIn HTTP/1.1
+Content-Type: application/json
+
+{
+  "email": "{{ username }}",
+  "password": "{{ password }}"
+}

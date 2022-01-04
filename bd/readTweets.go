@@ -2,11 +2,12 @@ package bd
 
 import (
 	"context"
+	"log"
+	"time"
+
 	"github.com/ccontreras/crispy-potato/models"
 	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/mongo/options"
-	"log"
-	"time"
 )
 
 // ReadTweets function for reading tweets

@@ -2,10 +2,11 @@ package bd
 
 import (
 	"context"
+	"time"
+
 	"github.com/ccontreras/crispy-potato/models"
 	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/bson/primitive"
-	"time"
 )
 
 func ModifyRegister(u models.User, ID string) (bool, error) {

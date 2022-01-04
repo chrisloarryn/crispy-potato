@@ -1,18 +1,19 @@
 package routers
 
 import (
-	"github.com/ccontreras/crispy-potato/bd"
-	"github.com/ccontreras/crispy-potato/models"
 	"io"
 	"net/http"
 	"os"
 	"strings"
+
+	"github.com/ccontreras/crispy-potato/bd"
+	"github.com/ccontreras/crispy-potato/models"
 )
 
 // UploadBanner to upload banner
 func UploadBanner(w http.ResponseWriter, r *http.Request) {
 
-	file, handler, err := r.FormFile("banner")
+	file, handler, _ := r.FormFile("banner")
 	var extension = strings.Split(handler.Filename, ".")[1]
 	var upFile string = "uploads/banners/" + IDUser + "." + extension
 
@@ -33,7 +34,7 @@ func UploadBanner(w http.ResponseWriter, r *http.Request) {
 
 	user.Banner = IDUser + "." + extension
 	status, err = bd.ModifyRegister(user, IDUser)
-	if err != nil || status == false {
+	if err != nil || !status {
 		http.Error(w, "error saving the image"+err.Error(), http.StatusBadRequest)
 		return
 	}

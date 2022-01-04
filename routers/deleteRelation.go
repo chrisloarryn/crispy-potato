@@ -1,9 +1,10 @@
 package routers
 
 import (
+	"net/http"
+
 	"github.com/ccontreras/crispy-potato/bd"
 	"github.com/ccontreras/crispy-potato/models"
-	"net/http"
 )
 
 // DeleteRelation for delete
@@ -24,7 +25,7 @@ func DeleteRelation(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, "an error has occurred when deleting relation "+err.Error(), http.StatusBadRequest)
 		return
 	}
-	if status == false {
+	if !status {
 		http.Error(w, "relation has not been deleted "+err.Error(), http.StatusBadRequest)
 		return
 	}

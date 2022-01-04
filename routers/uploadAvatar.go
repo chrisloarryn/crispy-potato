@@ -1,18 +1,20 @@
 package routers
 
 import (
-	"github.com/ccontreras/crispy-potato/bd"
-	"github.com/ccontreras/crispy-potato/models"
 	"io"
 	"net/http"
 	"os"
 	"strings"
+
+	"github.com/ccontreras/crispy-potato/bd"
+	"github.com/ccontreras/crispy-potato/models"
 )
 
 // UploadAvatar to upload avatar
 func UploadAvatar(w http.ResponseWriter, r *http.Request) {
 
-	file, handler, err := r.FormFile("avatar")
+	file, handler, _ := r.FormFile("avatar")
+	// file, handler, err := r.FormFile("avatar")
 	var extension = strings.Split(handler.Filename, ".")[1]
 	var upFile string = "uploads/avatars/" + IDUser + "." + extension
 
@@ -33,7 +35,7 @@ func UploadAvatar(w http.ResponseWriter, r *http.Request) {
 
 	user.Avatar = IDUser + "." + extension
 	status, err = bd.ModifyRegister(user, IDUser)
-	if err != nil || status == false {
+	if err != nil || !status {
 		http.Error(w, "error saving the image"+err.Error(), http.StatusBadRequest)
 		return
 	}

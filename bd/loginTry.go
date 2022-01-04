@@ -8,7 +8,7 @@ import (
 // LoginTry handle the login
 func LoginTry(email string, password string) (models.User, bool) {
 	user, found, _ := CheckUserAlreadyExists(email)
-	if found == false {
+	if !found {
 		return user, false
 	}
 

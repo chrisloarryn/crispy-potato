@@ -2,9 +2,10 @@ package routers
 
 import (
 	"encoding/json"
+	"net/http"
+
 	"github.com/ccontreras/crispy-potato/bd"
 	"github.com/ccontreras/crispy-potato/models"
-	"net/http"
 )
 
 func ModifyProfile(w http.ResponseWriter, r *http.Request) {
@@ -23,7 +24,7 @@ func ModifyProfile(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, "an error has occurred when trying to update, please try again"+err.Error(), 400)
 		return
 	}
-	if status == false {
+	if !status {
 		http.Error(w, "user has not been modified yet", 400)
 		return
 	}

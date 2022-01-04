@@ -1,9 +1,10 @@
 package routers
 
 import (
+	"net/http"
+
 	"github.com/ccontreras/crispy-potato/bd"
 	"github.com/ccontreras/crispy-potato/models"
-	"net/http"
 )
 
 // InsertRelation do the registry
@@ -24,7 +25,7 @@ func InsertRelation(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, "an error has occurred when inserting relation "+err.Error(), http.StatusBadRequest)
 		return
 	}
-	if status == false {
+	if !status {
 		http.Error(w, "relation has not been inserted "+err.Error(), http.StatusBadRequest)
 		return
 	}

@@ -2,10 +2,11 @@ package routers
 
 import (
 	"errors"
+	"strings"
+
 	"github.com/ccontreras/crispy-potato/bd"
 	"github.com/ccontreras/crispy-potato/models"
 	"github.com/dgrijalva/jwt-go"
-	"strings"
 )
 
 // IDUser user id used in all the endpoints
@@ -29,7 +30,7 @@ func ProcessToken(token string) (*models.Claim, bool, string, error) {
 	})
 	if err == nil {
 		userFound, found, _ := bd.CheckUserAlreadyExists(claims.Email)
-		if found == true {
+		if found {
 			Email = claims.Email
 			IDUser = userFound.ID.Hex()
 		}

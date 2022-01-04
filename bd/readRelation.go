@@ -2,9 +2,10 @@ package bd
 
 import (
 	"context"
+	"time"
+
 	"github.com/ccontreras/crispy-potato/models"
 	"go.mongodb.org/mongo-driver/bson"
-	"time"
 )
 
 // ReadRelation find the relations

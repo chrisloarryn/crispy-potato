@@ -3,10 +3,11 @@ package bd
 import (
 	"context"
 	"fmt"
+	"time"
+
 	"github.com/ccontreras/crispy-potato/models"
 	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/bson/primitive"
-	"time"
 )
 
 // FindAProfile is a function to find a profile in the database
