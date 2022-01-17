@@ -17,7 +17,7 @@ func Handlers() {
 
 	router.HandleFunc("/signUp", middlew.CheckDB(routers.Register)).Methods("POST")
 	router.HandleFunc("/signIn", middlew.CheckDB(routers.Login)).Methods("POST")
-	router.HandleFunc("/me", middlew.CheckDB(middlew.ValidateJWT(routers.Me))).Methods("GET")
+	router.HandleFunc("/{id}/{idBox}/me", middlew.CheckDB(middlew.ValidateJWT(routers.Me))).Methods("GET")
 	router.HandleFunc("/me", middlew.CheckDB(middlew.ValidateJWT(routers.ModifyProfile))).Methods("PUT")
 	router.HandleFunc("/tweets", middlew.CheckDB(middlew.ValidateJWT(routers.SaveTweet))).Methods("POST")
 	router.HandleFunc("/tweets", middlew.CheckDB(middlew.ValidateJWT(routers.ReadTweets))).Methods("GET")

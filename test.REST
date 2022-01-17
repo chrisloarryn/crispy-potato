@@ -6,8 +6,8 @@
 
 
 ###
-GET {{ baseURL }}/tweets?id=6122daa33f41511c76cd1ca3&page=1 HTTP/1.1
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MWQzZTZjZjA4ZWRmYjk5MjA2YWJiNjgiLCJiaW9ncmFwaGljIjoiIiwiYmlydGhkYXkiOiIwMDAxLTAxLTAxVDAwOjAwOjAwWiIsImVtYWlsIjoiYWRtaW5AYWRtaW4uY2wiLCJleHAiOjE2NDEzNjM1NTcsImxvY2F0aW9uIjoiIiwibmFtZSI6IiIsInN1cm5hbWUiOiIiLCJ3ZWJzaXRlIjoiIn0.cWwdkQvW-mNDtntm-loR2yTww-wFQLQpTY0AKGedDfw
+GET {{ baseURL }}/11/11/me?id=61d3e6cf08edfb99206abb68 HTTP/1.1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MWQzZTZjZjA4ZWRmYjk5MjA2YWJiNjgiLCJiaW9ncmFwaGljIjoiIiwiYmlydGhkYXkiOiIwMDAxLTAxLTAxVDAwOjAwOjAwWiIsImVtYWlsIjoiYWRtaW5AYWRtaW4uY2wiLCJleHAiOjE2NDE0OTY4MDIsImxvY2F0aW9uIjoiIiwibmFtZSI6IiIsInN1cm5hbWUiOiIiLCJ3ZWJzaXRlIjoiIn0.i7eWoP-G5L6gWakZCKd7gV1ufHJ0oZnKxQCDXEDwkgU
 
 ###
 GET {{ baseURL }}/tweets/{{ tweetID }} HTTP/1.1

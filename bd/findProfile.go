@@ -21,6 +21,7 @@ func FindAProfile(ID string) (models.User, error) {
 	var profile models.User
 	objID, _ := primitive.ObjectIDFromHex(ID)
 
+	fmt.Println(objID)
 	condition := bson.M{
 		"_id": objID,
 	}
@@ -29,7 +30,7 @@ func FindAProfile(ID string) (models.User, error) {
 	profile.Password = ""
 
 	if err != nil {
-		fmt.Println("Entry not found" + err.Error())
+		fmt.Println("Entry not found " + err.Error())
 		return profile, err
 	}
 
