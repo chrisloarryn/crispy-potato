@@ -19,4 +19,24 @@
 .idea/vcs.xml
 .idea/modules.xml
 .idea/crispy-potato.iml
+
+# Build artifacts
 main
+bin/
+
+# Uploads
+uploads/
+
+# Environment variables
+.env
+
+# OS specific files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Coverage reports
+coverage.out
+coverage.html
