@@ -20,3 +20,9 @@ type User struct {
 	Location   string             `bson:"location" json:"location,omitempty"`
 	Website    string             `bson:"website" json:"website,omitempty"`
 }
+
+// CreatedUser is the structure that we are going to return when a user is created
+type CreatedUser struct {
+	ID    primitive.ObjectID `bson:"_id,omitempty" json:"id"`
+	Email string             `bson:"email" json:"email"`
+}

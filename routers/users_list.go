@@ -22,7 +22,7 @@ func UsersList(w http.ResponseWriter, r *http.Request) {
 	int64Page := int64(pageTemp)
 
 	result, ok := bd.ReadAllUsers(IDUser, int64Page, search, typeUser)
-	if  !ok {
+	if !ok {
 		http.Error(w, "Error reading users", http.StatusBadRequest)
 		return
 	}

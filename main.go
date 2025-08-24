@@ -1,9 +1,10 @@
 package main
 
 import (
+	"log"
+
 	"github.com/ccontreras/crispy-potato/bd"
 	"github.com/ccontreras/crispy-potato/handlers"
-	"log"
 )
 
 func main() {

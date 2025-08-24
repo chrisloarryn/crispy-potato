@@ -32,7 +32,7 @@ func Register(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	_, status, err := bd.InsertRegister(t)
+	usr, status, err := bd.InsertRegister(t)
 	if err != nil {
 		http.Error(w, "An error has occurred when trying to insert the user to the database"+err.Error(), 400)
 		return
@@ -44,4 +44,9 @@ func Register(w http.ResponseWriter, r *http.Request) {
 
 	w.Header().Set("Content-type", "application/json")
 	w.WriteHeader(http.StatusCreated)
+	err = json.NewEncoder(w).Encode(usr)
+	if err != nil {
+		http.Error(w, "An error has occurred when trying to encode the user to json"+err.Error(), 400)
+		return
+	}
 }

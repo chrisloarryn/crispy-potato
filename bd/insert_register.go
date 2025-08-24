@@ -9,7 +9,7 @@ import (
 )
 
 // InsertRegister function inserts a register into the database
-func InsertRegister(u models.User) (string, bool, error) {
+func InsertRegister(u models.User) (models.CreatedUser, bool, error) {
 	ctx, cancel := context.WithTimeout(context.Background(), 15*time.Second)
 	defer cancel()
 
@@ -18,11 +18,15 @@ func InsertRegister(u models.User) (string, bool, error) {
 
 	u.Password, _ = EncryptPassword(u.Password)
 
+	var cu models.CreatedUser
+
 	result, err := col.InsertOne(ctx, u)
 	if err != nil {
-		return "", false, err
+		return cu, false, err
 	}
 
-	ObjID, _ := result.InsertedID.(primitive.ObjectID)
-	return ObjID.String(), true, nil
+	cu.ID = result.InsertedID.(primitive.ObjectID)
+	cu.Email = u.Email
+
+	return cu, true, nil
 }
